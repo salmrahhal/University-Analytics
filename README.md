@@ -101,8 +101,7 @@ Instead of removing records, **Winsorization (capping)** was applied:
 
 # 4. Data Quality Validation
 
-A full **Data Quality Assessment** was conducted across the dataset.
-
+A full **Data Quality Assessment** was conducted across the dataset.   
 The following dimensions were validated:
 
 - Completeness
@@ -112,13 +111,6 @@ The following dimensions were validated:
 - Uniqueness
 - Integrity
 - Timeliness
-
-Results:
-
-- No duplicate records
-- All 40 columns have valid data types
-- No remaining missing values
-- Dataset confirmed ready for analysis
 
 ---
 
