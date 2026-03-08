@@ -1,10 +1,257 @@
-Tools & Technologies
+# University Student Analytics Dashboard
 
-- Python laibraries (Pandas , NumPy)
+## Project Overview
 
-- Jupyter Notebook
+This project analyzes a university student dataset to understand academic performance, dropout risk, and career outcomes. The goal is to transform raw student data into actionable insights through data cleaning, data quality validation, and interactive business intelligence dashboards.
 
-Data Visualization
+The dataset contains **3,000 student records and 40 attributes** covering academic performance, financial background, student engagement, and employment outcomes.
 
-- Tableau
+The final output of the project is an **interactive Tableau dashboard** supported by **Python-based data preparation and analysis**.
 
+---
+
+# Project Workflow
+
+The project was completed in the following stages:
+
+## 1. Data Exploration
+
+Initial data profiling was performed to understand the dataset structure.
+
+Dataset characteristics:
+
+- 3,000 student records
+- 40 columns
+- 22 numeric variables
+- 18 categorical variables
+- 11 columns contained missing values
+
+The dataset represents the **student lifecycle**, including:
+
+- Academic performance
+- Engagement activities
+- Financial background
+- Wellbeing indicators
+- Career outcomes
+
+Each row represents **one student**.
+
+---
+
+# 2. Data Cleaning and Preparation (Python)
+
+Data cleaning was performed using **Python in a Jupyter Notebook**.
+
+### Missing Value Handling
+
+11 columns contained missing values. Different imputation strategies were applied depending on the variable type.
+
+Techniques used:
+
+- **Median Imputation**
+  - Used for numeric columns with skewed distributions  
+  - Example: SAT Score, Family Income, Study Hours
+
+- **Mode Imputation**
+  - Used for categorical variables  
+  - Example: Parental Education Level
+
+- **Conditional Imputation**
+  - Applied when the value logically depends on another column  
+  - Example:
+    - If `Employment_Offer = No` → `Starting_Salary = 0`
+    - If `Scholarship_Status = No` → `Scholarship_Amount = 0`
+
+After cleaning:
+
+- Missing values reduced from **2,796 cells to 0**
+
+---
+
+# 3. Outlier Detection and Treatment
+
+Outliers were detected using the **Interquartile Range (IQR) method**.
+
+Affected columns:
+
+- Study Hours Per Week
+- Weekly Work Hours
+- Family Income
+
+Instead of removing records, **Winsorization (capping)** was applied:
+
+- Extreme values were capped at the IQR upper bound
+- This preserved valid student records while reducing statistical distortion.
+
+---
+
+# 4. Data Quality Validation
+
+A full **Data Quality Assessment** was conducted across the dataset.
+
+The following dimensions were validated:
+
+- Completeness
+- Accuracy
+- Consistency
+- Validity
+- Uniqueness
+- Integrity
+- Timeliness
+
+Results:
+
+- No duplicate records
+- All 40 columns have valid data types
+- No remaining missing values
+- Dataset confirmed ready for analysis
+
+---
+
+# 5. Dashboard Development (Tableau)
+
+An interactive dashboard was developed using **Tableau** to visualize key metrics and insights.
+
+The dashboard consists of **three main analytical tabs**.
+
+### Executive Overview
+
+Provides a high-level institutional snapshot including:
+
+- Student population
+- Average GPA
+- Dropout risk
+- Employment rate
+- Financial indicators
+
+This tab serves as the **main landing page for leadership**.
+
+---
+
+### Academic Performance
+
+Analyzes academic behavior and performance including:
+
+- GPA distribution
+- SAT score analysis
+- Attendance rate
+- Study hours
+- Credits completed
+
+The analysis is segmented by:
+
+- Program
+- Year of study
+- Student demographics
+
+---
+
+### Career Outcomes
+
+Focuses on employment and career readiness.
+
+Metrics include:
+
+- Employment offer rate
+- Starting salary
+- Internship participation
+- Graduation pipeline
+
+---
+
+# Key Insights
+
+Several important insights were discovered during the analysis.
+
+### GPA Does Not Strongly Predict Employment
+
+Students with lower GPA levels have employment rates similar to high-performing students, indicating that employers may value other skills beyond academic performance.
+
+---
+
+### SAT Scores Do Not Predict University GPA
+
+The correlation between SAT scores and university GPA is nearly zero, suggesting standardized test scores are weak predictors of university success.
+
+---
+
+### Internship Participation Did Not Increase Employment Rate
+
+Students who completed internships had nearly identical employment rates to those who did not.
+
+---
+
+### AI Program Students Have the Highest Dropout Risk
+
+Despite having the **highest average GPA**, AI students also show the **highest dropout risk**, indicating non-academic factors may be contributing.
+
+---
+
+### Final-Year Students Have the Highest Dropout Risk
+
+Dropout risk increases with academic progression, peaking in **Year 5**, likely due to thesis, workload pressure, and career transition stress.
+
+---
+
+# Tools and Technologies
+
+The following tools were used in this project:
+
+### Python
+Used for data preparation and analysis.
+
+Libraries used include:
+
+- Pandas
+- NumPy
+- Matplotlib / Seaborn (for exploration)
+
+### Jupyter Notebook
+Used for:
+
+- Data exploration
+- Data cleaning
+- Missing value treatment
+- Outlier detection
+
+### Tableau
+Used to build the **interactive analytics dashboard**, including:
+
+- KPI cards
+- Interactive filters
+- Visual storytelling
+- Multi-tab dashboard design
+
+---
+
+# Repository Structure
+
+```
+project/
+│
+├── data/
+│   └── university_dataset.csv
+│
+├── notebooks/
+│   └── data_cleaning.ipynb
+│
+├── dashboard/
+│   └── university_dashboard.twb
+│
+├── report/
+│   └── University_BI_Report.pdf
+│
+└── README.md
+```
+
+# Project Purpose
+
+This project demonstrates the **end-to-end BI workflow**, including:
+
+- Data cleaning
+- Data quality assessment
+- Data analysis
+- Business intelligence dashboard development
+- Insight generation
+
+The objective is to transform raw operational data into **actionable insights for decision makers** in higher education institutions.
