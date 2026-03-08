@@ -144,6 +144,7 @@ The analysis is segmented by:
 - Year of study
 - Student demographics
 
+![Dashboard](images/1.png)
 ---
 
 ### Career Outcomes
